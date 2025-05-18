@@ -24,7 +24,7 @@ A notification service built with **FastAPI** and **RabbitMQ**, supporting **ema
 
 1. **Clone the repository**:
    ```bash
-   clone https://github.com/Adwetamishra/pepsale_assignment.git
+   git clone https://github.com/Adwetamishra/pepsale_assignment.git
    cd notification-service
    ```
 
