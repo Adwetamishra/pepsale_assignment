@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672" # AMQP
+      - "15672:15672" # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  notification-app:
+    build: .
+    container_name: notification-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - rabbitmq
+      - redis
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      REDIS_HOST: redis
