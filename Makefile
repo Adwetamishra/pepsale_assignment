@@ -21,4 +21,8 @@ test:
 # Run the worker in Docker
 .PHONY: docker-worker
 docker-worker:
-	docker exec -it notification-service bash -c "PYTHONPATH=/app python app/queue/consumer.py"
+	docker exec -it notification-service bash -c 'PYTHONPATH=/app python3 app/queue/consumer.py'
+
+
+
+
